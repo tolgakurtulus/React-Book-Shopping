@@ -8,7 +8,7 @@ const Products = props => {
   return (
     <div>
       <h2 className="mb-5 mr-5 text-right text-white">
-        <Link to="/cart" className="text-white">Basket <i className="fas fa-shopping-basket"></i></Link>
+        <Link to="/React-Book-Shopping/cart" className="text-white">Basket <i className="fas fa-shopping-basket"></i></Link>
       </h2>
       <div className="container">
         <div className="row">

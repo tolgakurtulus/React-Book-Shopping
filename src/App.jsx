@@ -13,8 +13,8 @@ const App = props => {
       <header>
         <h1>The Best Books Basket</h1>
       </header>
-      <Route exact path="/" component={Products} />
-      <Route path="/cart" component={CartList} />
+      <Route exact path="/React-Book-Shopping" component={Products} />
+      <Route path="/React-Book-Shopping/cart" component={CartList} />
     </div>
   );
 };

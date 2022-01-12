@@ -17,7 +17,7 @@ const CartList = props => {
     <div>
       <div className="head mb-5 d-flex justify-content-between">
         <h2 className="ml-5 text-left text-white">
-          <Link to="/" className="text-white">Book List</Link>
+          <Link to="/React-Book-Shopping" className="text-white">Book List</Link>
         </h2>
         <h2 className="mr-5 text-right text-white">
           Total Amount of Basket: &#8378; {totalPrice.toFixed(2)}
