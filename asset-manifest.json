@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React-Book-Shopping/static/css/main.d64dcd1e.chunk.css",
+    "main.js": "/React-Book-Shopping/static/js/main.c7ad3882.chunk.js",
+    "main.js.map": "/React-Book-Shopping/static/js/main.c7ad3882.chunk.js.map",
+    "runtime-main.js": "/React-Book-Shopping/static/js/runtime-main.50394079.js",
+    "runtime-main.js.map": "/React-Book-Shopping/static/js/runtime-main.50394079.js.map",
+    "static/css/2.fb7dbf56.chunk.css": "/React-Book-Shopping/static/css/2.fb7dbf56.chunk.css",
+    "static/js/2.a20537f4.chunk.js": "/React-Book-Shopping/static/js/2.a20537f4.chunk.js",
+    "static/js/2.a20537f4.chunk.js.map": "/React-Book-Shopping/static/js/2.a20537f4.chunk.js.map",
+    "index.html": "/React-Book-Shopping/index.html",
+    "static/css/2.fb7dbf56.chunk.css.map": "/React-Book-Shopping/static/css/2.fb7dbf56.chunk.css.map",
+    "static/css/main.d64dcd1e.chunk.css.map": "/React-Book-Shopping/static/css/main.d64dcd1e.chunk.css.map",
+    "static/js/2.a20537f4.chunk.js.LICENSE.txt": "/React-Book-Shopping/static/js/2.a20537f4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.50394079.js",
+    "static/css/2.fb7dbf56.chunk.css",
+    "static/js/2.a20537f4.chunk.js",
+    "static/css/main.d64dcd1e.chunk.css",
+    "static/js/main.c7ad3882.chunk.js"
+  ]
+}
