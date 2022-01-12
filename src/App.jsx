@@ -1,77 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './App.scss';
-import Form from "./components/Form"
-import TodoList from "./components/TodoList"
+import React from "react";
+import "./App.scss";
+import { Route } from "react-router-dom";
+import { connect } from "react-redux"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import CartList from "./components/CartList";
+import Products from "./components/Products";
 
-function App() {
-
-  const [inputText, setInputText] = useState("");
-  const [todos, setTodos] = useState([]);
-  const [status, setStatus] = useState("all");
-  const [filteredTodos, setFilteredTodos] = useState([]);
-
-
-  // Use Effect Only Once App Start  ( "[]" this is provide)
-  useEffect(() => {
-    getLocalTodos();
-  }, []);
-
-  // Use Effect
-  useEffect(() => {
-    filterHandler();
-    saveLocalTodos();
-  }, [todos, status]);
-
-
-  const filterHandler = () => {
-    switch (status) {
-      case "completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true));
-        break;
-      case "uncompleted":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false));
-        break;
-      default:
-        setFilteredTodos(todos);
-        break;
-    }
-  }
-
-  // Save to Local
-  const saveLocalTodos = () => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }
-
-  // Get to Local
-  const getLocalTodos = () => {
-    if(localStorage.getItem("todos") === null) {
-      localStorage.setItem("todos", JSON.stringify([]));
-    } else {
-      let todoLocal = JSON.parse(localStorage.getItem("todos"))
-      setTodos(todoLocal);
-    }
-  }
-
+const App = props => {
+  console.log(props.bookList);
   return (
-    <div className="App c-app">
+    <div className="App mb-5">
       <header>
-        <h1>Todo App</h1>
+        <h1>The Best Books Basket</h1>
       </header>
-      <Form 
-        inputText={inputText} 
-        todos={todos} 
-        setTodos={setTodos} 
-        setInputText={setInputText} 
-        setStatus={setStatus} 
-      />
-      <TodoList 
-        filteredTodos={filteredTodos} 
-        setTodos={setTodos} 
-        todos={todos} 
-      />
+      <Route exact path="/" component={Products} />
+      <Route path="/cart" component={CartList} />
     </div>
   );
+};
+
+
+const mapStateToProps = state => {
+  return {
+    bookList: state.bookList,
+  }
 }
 
-export default App;
+export default connect(mapStateToProps)(App);
