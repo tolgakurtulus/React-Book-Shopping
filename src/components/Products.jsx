@@ -1,10 +1,17 @@
 import React from "react";
-import { connect } from "react-redux"
-import { addBasket } from "../actions"
+import { useSelector, useDispatch } from "react-redux";
+import { addBasket } from "../actions";
 import { Link } from "react-router-dom";
 
-const Products = props => {
-  console.log(props);
+const Products = () => {
+
+  const bookList = useSelector(state => state.bookList);
+  const dispatch = useDispatch()
+
+  const addBasketHandleClick = (book) => {
+    dispatch(addBasket(book))
+  }
+
   return (
     <div>
       <h2 className="mb-5 mr-5 text-right text-white">
@@ -12,19 +19,15 @@ const Products = props => {
       </h2>
       <div className="container">
         <div className="row">
-          {props.bookList.map(book => (
+          {bookList.map(book => (
             <div className="col-4 book mb-25 mt-5" key={book.id}>
-              <img
-                className= "w-100 h-60"
-                src={book.image}
-                alt={book.name}
-              />
+              <img className= "w-100 h-60" src={book.image} alt={book.name}/>
               <div className="mt-3">
                 <h4 className="text-white">{book.name}</h4>
                 <p className="text-white"><strong>Author:</strong>  {book.author}</p>
                 <p className="text-white"><strong>Description:</strong> {book.description.substring(0, 155)}...</p>
                 <p className="text-white"><strong>Price:</strong> &#8378; {book.price}</p>
-                <button className="btn btn-success" onClick={() => props.addBasket(book)}>+ Add Basket</button>
+                <button className="btn btn-success" onClick={addBasketHandleClick(book)}>+ Add Basket</button>
               </div>
             </div>
           ))};
@@ -34,11 +37,4 @@ const Products = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    bookList: state.bookList,
-    cart: state.cart
-  }
-}
-
-export default connect(mapStateToProps, { addBasket })(Products);
+export default Products;
