@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Cart from "./Cart";
+import Basket from "./Basket";
 import { useSelector } from "react-redux";
 
-const CartList = (props) => {
+const BasketList = (props) => {
   const cart = useSelector((state) => state.cart);
   const totalPrice = cart.reduce(
     (total, item) => (total += item.totalprice),
@@ -25,7 +25,7 @@ const CartList = (props) => {
       <div className="container">
         <div className="row">
           {cart.map((book, i) => (
-            <Cart
+            <Basket
               key={i}
               book={book}
               idx={i}
@@ -45,4 +45,4 @@ const CartList = (props) => {
   );
 };
 
-export default CartList;
+export default BasketList;

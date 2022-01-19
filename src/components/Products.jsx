@@ -1,16 +1,12 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addBasket } from "../actions";
+import { addBasket } from "../redux/actions/index.js";
 import { Link } from "react-router-dom";
 
 const Products = () => {
 
   const bookList = useSelector(state => state.bookList);
   const dispatch = useDispatch()
-
-  const addBasketHandleClick = (book) => {
-    dispatch(addBasket(book))
-  }
 
   return (
     <div>
@@ -27,7 +23,7 @@ const Products = () => {
                 <p className="text-white"><strong>Author:</strong>  {book.author}</p>
                 <p className="text-white"><strong>Description:</strong> {book.description.substring(0, 155)}...</p>
                 <p className="text-white"><strong>Price:</strong> &#8378; {book.price}</p>
-                <button className="btn btn-success" onClick={addBasketHandleClick(book)}>+ Add Basket</button>
+                <button className="btn btn-success" onClick={() => dispatch(addBasket(book))}>+ Add Basket</button>
               </div>
             </div>
           ))};
